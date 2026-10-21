@@ -82,10 +82,8 @@ h1, h2, h3 { font-family: var(--font); font-weight: 800; letter-spacing: -0.015e
 .intro p { max-width: 62ch; margin: 0 0 14px; }
 .lede { font-size: 1.3rem; color: var(--teal); font-weight: 700; }
 .shots-band { background: var(--sage-pale); padding: 32px 0; }
-.shots { list-style: none; margin: 0 auto; padding: 0 16px 8px; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-  width: min(1080px, 100%); scrollbar-color: var(--sage) transparent; }
-.shots li { flex: 0 0 auto; scroll-snap-align: start; }
-.shots img { width: 216px; border-radius: 14px; box-shadow: 0 6px 18px rgba(28,48,75,.14); }
+.shots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 3vw, 28px); }
+.shots img { width: 100%; border-radius: 14px; box-shadow: 0 6px 18px rgba(28,48,75,.14); }
 
 .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .links a { display: block; padding: 20px 22px; background: var(--tile); border-radius: 18px; text-decoration: none; border: 1px solid var(--line); }
@@ -125,5 +123,5 @@ h1, h2, h3 { font-family: var(--font); font-weight: 800; letter-spacing: -0.015e
   .game, .intro .wrap { grid-template-columns: 1fr; }
   .game img, .intro-icon { width: 88px; height: 88px; border-radius: 20px; }
   .links { grid-template-columns: 1fr; }
-  .shots img { width: 180px; }
+  .shots { grid-template-columns: repeat(2, 1fr); }
 }
