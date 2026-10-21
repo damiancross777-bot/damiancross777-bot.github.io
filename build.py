@@ -6,7 +6,7 @@ ROOT = Path(__file__).parent
 EMAIL = "phoneporium.au@gmail.com"
 UPDATED = "21 October 2026"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">')
+         '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;800&display=swap" rel="stylesheet">')
 
 
 def page(path, title, desc, body, nav=""):
@@ -24,7 +24,7 @@ def page(path, title, desc, body, nav=""):
 {FONTS}
 <link rel="stylesheet" href="{up}assets/site.css">
 </head>
-<body>
+<body class="{'home' if not path else ''}">
 <header class="site-head"><div class="wrap">
   <a class="brand" href="{up or './'}"><span class="brand-mark" aria-hidden="true">P</span>Phoneporium.AU</a>
   <nav class="site-nav" aria-label="Main">
@@ -54,31 +54,25 @@ def page(path, title, desc, body, nav=""):
     out.write_text(html, encoding="utf-8")
 
 
-# ---- Hero board: 8x8 letters with GRIDROVA traced along a bending path ------------------------
-BOARD = [
-    "TMSLAKEO",
-    "FGRIDNPU",
-    "BEHWRLIC",
-    "SKYTOVNE",
-    "PEARLAKE",
-    "PLUMEHST",
-    "OCEANBYF",
-    "WINDQUIZ",
-]
-PATH = [(1, 1), (1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 5), (4, 5)]  # G R I D R O V A
-assert "".join(BOARD[r][c] for r, c in PATH) == "GRIDROVA"
-cells = []
+# ---- Hero board: drawn like the GridRova store art (white board, navy letters, sage trace) ----------
+BOARD = ["QBEAW", "YULDN", "HOIAK", "SVBER", "APFMT"]
+assert "".join(BOARD[i][i] for i in range(5)) == "QUIET"
+C, PAD = 80, 20
+parts = [f'<rect x="4" y="4" width="{5*C+2*PAD-8}" height="{5*C+2*PAD-8}" rx="28" class="b-face"/>']
+for i in range(1, 5):
+    parts.append(f'<line x1="{PAD+i*C}" y1="{PAD+8}" x2="{PAD+i*C}" y2="{PAD+5*C-8}" class="b-rule"/>')
+    parts.append(f'<line x1="{PAD+8}" y1="{PAD+i*C}" x2="{PAD+5*C-8}" y2="{PAD+i*C}" class="b-rule"/>')
+c0, c4 = PAD + C / 2, PAD + 4 * C + C / 2
+parts.append(f'<line x1="{c0}" y1="{c0}" x2="{c4}" y2="{c4}" class="b-trace" pathLength="1"/>')
 for r, row in enumerate(BOARD):
     for c, ch in enumerate(row):
-        if (r, c) in PATH:
-            cells.append(f'<span class="on" style="--i:{PATH.index((r, c))}">{ch}</span>')
-        else:
-            cells.append(f"<span>{ch}</span>")
-board = '<div class="grid-board" role="img" aria-label="A letter grid with the word GridRova traced through it">' + "".join(cells) + "</div>"
+        parts.append(f'<text x="{PAD+c*C+C/2}" y="{PAD+r*C+C/2}" class="b-letter">{ch}</text>')
+board = (f'<svg class="board" viewBox="0 0 {5*C+2*PAD} {5*C+2*PAD}" role="img" '
+         f'aria-label="A word-search board with the word QUIET traced diagonally">' + "".join(parts) + "</svg>")
 
 page("", "Phoneporium.AU", "Phoneporium.AU makes calm, family-friendly mobile word games in Australia. Home of GridRova.", f"""
-<section class="hero"><div class="wrap">
-  <div>
+<section class="hero scenic"><div class="wrap">
+  <div class="hero-copy">
     <h1>Small games for quiet minutes.</h1>
     <p>Phoneporium.AU is an independent studio in Australia making calm, family-friendly puzzle games for Android.</p>
     <p>Our first game, GridRova, is a scenic word search with 300 levels.</p>
@@ -87,8 +81,8 @@ page("", "Phoneporium.AU", "Phoneporium.AU makes calm, family-friendly mobile wo
 </div></section>
 <section class="section"><div class="wrap">
   <h2>GridRova</h2>
-  <div class="game">
-    <img src="assets/gridrova-icon-256.png" alt="GridRova app icon" width="160" height="160">
+  <a class="feature-link" href="gridrova/"><img class="feature-art" src="assets/gridrova-feature.jpg" alt="GridRova beside a sage-highlighted BLOOM word grid, with a sunlit mountain valley and river behind it." width="1024" height="500"></a>
+  <div class="game solo">
     <div>
       <p>Trace hidden words across 300 levels and 30 scenic stops, from easy first grids to longer words in every direction. Play untimed, try a daily puzzle or take on a time challenge.</p>
       <p class="status">Coming soon to Google Play</p>
@@ -107,15 +101,19 @@ page("", "Phoneporium.AU", "Phoneporium.AU makes calm, family-friendly mobile wo
 """)
 
 page("gridrova", "GridRova by Phoneporium.AU", "GridRova is a scenic word-search game with 300 levels, daily puzzles and optional time challenges.", f"""
-<section class="hero"><div class="wrap">
+<section class="feature"><div class="wrap">
+  <img class="feature-art" src="../assets/gridrova-feature.jpg" alt="GridRova beside a sage-highlighted BLOOM word grid, with a sunlit mountain valley and river behind it." width="1024" height="500">
+</div></section>
+<section class="intro"><div class="wrap">
+  <img class="intro-icon" src="../assets/gridrova-icon-256.png" alt="" width="112" height="112">
   <div>
     <h1>GridRova</h1>
-    <p>That lovely moment when a hidden word comes into focus: one last letter, a quick trace, and there it is.</p>
-    <p>GridRova turns that small discovery into a scenic word-search journey through 300 levels.</p>
+    <p class="lede">Spot hidden words and explore 300 levels of scenic word-search puzzles.</p>
+    <p>That lovely moment when a hidden word suddenly comes into focus: one last letter, a quick trace, and there it is. GridRova turns that small discovery into a scenic word-search journey.</p>
     <p class="status">Coming soon to Google Play</p>
   </div>
-  <img src="../assets/gridrova-icon-256.png" alt="GridRova app icon" width="256" height="256" style="border-radius:56px;justify-self:end;box-shadow:0 10px 30px rgba(28,61,37,.2)">
 </div></section>
+<section class="shots-band" aria-label="Screens from GridRova"><ul class="shots"><li><img src="../assets/shots/gridrova-01.jpg" alt="A welcoming five-by-five word-search board in The Firefly Wilds, with GOAT, FROG and OWL to find." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-02.jpg" alt="An underwater word-search board with CORGI highlighted vertically and MINK horizontally; LARK and SEAL remain." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-03.jpg" alt="The journey shows forest and underwater scenic stops, completed levels and the next available puzzle." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-04.jpg" alt="The scenic album shows The Firefly Wilds and The Sapphire Sanctuary collected, with later postcards still locked." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-05.jpg" alt="The help panel offers a free nudge, a coin-priced trace and one free rescue per puzzle." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-06.jpg" alt="The daily Colors puzzle has VIOLET highlighted backwards across a row and RUSSET vertically in a scenic sky setting." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-07.jpg" alt="An optional timed Animals puzzle shows a countdown and solved-word highlights for CUCKOO and FALCON." width="540" height="960" loading="lazy"></li><li><img src="../assets/shots/gridrova-08.jpg" alt="Settings offer separate sound options, reduced motion, high contrast and tap-first-and-last-letter selection." width="540" height="960" loading="lazy"></li></ul></section>
 <section class="section"><div class="wrap">
   <h2>What's inside</h2>
   <ul class="facts">

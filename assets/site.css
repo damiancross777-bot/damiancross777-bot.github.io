@@ -1,108 +1,129 @@
-/* Phoneporium.AU — palette taken from the GridRova icon. */
+/* Phoneporium.AU — brand tokens taken from the GridRova store art (feature graphic + screenshots). */
 :root {
-  --ink: #1C3D25;
-  --ink-soft: #3F5A45;
-  --sage: #7E9C6E;
-  --sage-pale: #DCE6D4;
-  --paper: #EEF2EA;
-  --tile: #FBF6EC;
-  --gold: #A87A22;
-  --line: #C9D5C1;
-  --radius-tile: 10px;
-  --radius-panel: 22px;
-  --display: "Bricolage Grotesque", "Atkinson Hyperlegible", system-ui, sans-serif;
-  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --ink: #1C304B;        /* navy title lettering */
+  --ink-soft: #4B5B70;
+  --teal: #15796F;       /* "GridRova" label colour on screenshots */
+  --sage: #9DB88A;       /* word-trace highlight */
+  --sage-pale: #E4EBDC;
+  --paper: #F6F1E7;      /* parchment background */
+  --tile: #FFFDF8;
+  --clay: #B77B5D;       /* terracotta rule under the title */
+  --line: #DED6C6;
+  --font: "Segoe UI", "Noto Sans", system-ui, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #E6EFE2; --ink-soft: #B9C9B4; --sage: #8FB07D; --sage-pale: #2D4433;
-    --paper: #13241A; --tile: #1D3324; --gold: #D9AE55; --line: #2F4A37; color-scheme: dark;
+    --ink: #EEF1F5; --ink-soft: #B9C3CF; --teal: #5CC0B2; --sage: #8FB07D; --sage-pale: #22374A;
+    --paper: #142235; --tile: #1B2D44; --clay: #D99878; --line: #2D4159; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --ink: #E6EFE2; --ink-soft: #B9C9B4; --sage: #8FB07D; --sage-pale: #2D4433;
-  --paper: #13241A; --tile: #1D3324; --gold: #D9AE55; --line: #2F4A37; color-scheme: dark;
+  --ink: #EEF1F5; --ink-soft: #B9C3CF; --teal: #5CC0B2; --sage: #8FB07D; --sage-pale: #22374A;
+  --paper: #142235; --tile: #1B2D44; --clay: #D99878; --line: #2D4159; color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0; background: var(--paper); color: var(--ink);
-  font: 1.125rem/1.65 var(--body);
-}
+body { margin: 0; background: var(--paper); color: var(--ink); font: 1.125rem/1.65 var(--font); }
 a { color: inherit; text-decoration-color: var(--sage); text-underline-offset: 0.18em; text-decoration-thickness: 2px; }
-a:hover { text-decoration-color: var(--gold); }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
-img { max-width: 100%; display: block; }
+a:hover { text-decoration-color: var(--clay); }
+:focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--font); font-weight: 800; letter-spacing: -0.015em; }
 
 .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
-.site-head { padding: 22px 0; }
+.site-head { padding: 20px 0; position: relative; z-index: 2; }
 .site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 700 1.25rem/1 var(--display); letter-spacing: -0.01em; }
-.brand-mark { width: 38px; height: 38px; border-radius: var(--radius-tile); background: var(--ink); color: var(--tile);
-  display: grid; place-items: center; font: 800 1.3rem/1 var(--display); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+/* The studio mark is a GridRova letter tile: cream face, forest letter, sage edge. */
+.brand-mark { width: 38px; height: 38px; border-radius: 9px; background: #FBF3E4; color: #1F4A2E; display: grid; place-items: center;
+  font-weight: 800; font-size: 1.25rem; box-shadow: inset 0 -3px 0 #E2D3B8, 0 0 0 2px var(--sage); }
 .site-nav { display: flex; gap: 20px; font-size: 1rem; }
 .site-nav a { text-decoration: none; color: var(--ink-soft); }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--sage); }
 
-/* Hero: the one bold moment — a word grid with GRIDROVA traced on a sage path. */
-.hero { padding: clamp(24px, 6vw, 72px) 0 clamp(40px, 8vw, 96px); }
-.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 6vw, 80px); align-items: center; }
-.hero h1 { font: 800 clamp(2.4rem, 6.2vw, 4.6rem)/1.02 var(--display); letter-spacing: -0.03em; margin: 0 0 22px; max-width: 13ch; }
-.hero p { margin: 0 0 14px; max-width: 46ch; color: var(--ink-soft); font-size: 1.2rem; }
-.grid-board { position: relative; display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; padding: 14px;
-  background: var(--sage-pale); border-radius: var(--radius-panel); aspect-ratio: 1; max-width: 460px; justify-self: end; width: 100%; }
-.grid-board span { display: grid; place-items: center; border-radius: var(--radius-tile); background: var(--tile);
-  font: 700 clamp(0.95rem, 2.4vw, 1.35rem)/1 var(--display); color: var(--ink-soft); box-shadow: inset 0 -3px 0 rgba(28,61,37,.12); }
-.grid-board span.on { background: var(--sage); color: #fff; box-shadow: inset 0 -3px 0 rgba(0,0,0,.18); }
+/* Home hero: the store-art scenery with the word board laid over it. Fixed light colours — the image is light. */
+.hero.scenic { margin-top: -78px; padding: 128px 0 clamp(56px, 9vw, 120px); color: #1C304B;
+  background: linear-gradient(90deg, rgba(246,241,231,.97) 0%, rgba(246,241,231,.86) 34%, rgba(246,241,231,0) 62%),
+              url("scenic-1600.jpg") 70% 40% / cover no-repeat, #F6F1E7; }
+.hero.scenic .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 80px); align-items: center; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); line-height: 1.04; margin: 0 0 18px; max-width: 12ch; }
+.hero h1::after { content: ""; display: block; width: 58px; height: 4px; border-radius: 2px; background: #B77B5D; margin-top: 22px; }
+.hero p { margin: 0 0 12px; max-width: 42ch; color: #34465E; font-size: 1.2rem; }
+.board { width: 100%; max-width: 420px; justify-self: end; filter: drop-shadow(0 14px 30px rgba(28,48,75,.18)); }
+.b-face { fill: #FFFDF8; fill-opacity: .94; }
+.b-rule { stroke: #D9D9D2; stroke-width: 1.5; }
+.b-trace { stroke: #9DB88A; stroke-width: 60; stroke-linecap: round; opacity: .9; }
+.b-letter { font: 700 36px var(--font); fill: #25364B; text-anchor: middle; dominant-baseline: central; }
 @media (prefers-reduced-motion: no-preference) {
-  .grid-board span.on { animation: trace 0.42s cubic-bezier(.2,.8,.3,1) both; animation-delay: calc(var(--i) * 90ms + 300ms); }
-  @keyframes trace { from { background: var(--tile); color: var(--ink-soft); transform: scale(.92); } to { transform: none; } }
+  .b-trace { stroke-dasharray: 1; stroke-dashoffset: 1; animation: trace 1.1s .5s cubic-bezier(.3,.7,.3,1) forwards; }
+  @keyframes trace { to { stroke-dashoffset: 0; } }
 }
 
 .section { padding: clamp(40px, 7vw, 88px) 0; border-top: 1px solid var(--line); }
-.section h2 { font: 800 clamp(1.8rem, 3.6vw, 2.6rem)/1.1 var(--display); letter-spacing: -0.02em; margin: 0 0 18px; }
-.game { display: grid; grid-template-columns: 160px 1fr; gap: clamp(20px, 4vw, 48px); align-items: start; }
-.game img { width: 160px; height: 160px; border-radius: 36px; box-shadow: 0 8px 24px rgba(28,61,37,.18); }
+.section h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.1; margin: 0 0 20px; }
+.feature-art { width: 100%; border-radius: 20px; box-shadow: 0 10px 34px rgba(28,48,75,.16); }
+.feature-link { display: block; margin-bottom: 28px; }
+.game { display: grid; grid-template-columns: 112px 1fr; gap: clamp(20px, 4vw, 40px); align-items: start; }
+.game img { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 6px 18px rgba(28,48,75,.16); }
+.game.solo { grid-template-columns: 1fr; }
+.home .site-head, .home .site-nav a { color: #1C304B; }
 .game p { max-width: 60ch; margin: 0 0 14px; }
 .facts { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 22px 0; list-style: none; }
 .facts li { background: var(--tile); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 1rem; }
-.status { display: inline-block; font-weight: 700; color: var(--ink); border-left: 4px solid var(--gold); padding-left: 12px; }
+.status { display: inline-block; font-weight: 700; color: var(--teal); border-left: 4px solid var(--clay); padding-left: 12px; }
+
+/* GridRova page */
+.feature { padding: 8px 0 0; }
+.intro { padding: clamp(32px, 6vw, 64px) 0; }
+.intro .wrap { display: grid; grid-template-columns: 112px 1fr; gap: clamp(20px, 4vw, 40px); align-items: start; }
+.intro-icon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 6px 18px rgba(28,48,75,.16); }
+.intro h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1.05; margin: 0 0 10px; }
+.intro p { max-width: 62ch; margin: 0 0 14px; }
+.lede { font-size: 1.3rem; color: var(--teal); font-weight: 700; }
+.shots-band { background: var(--sage-pale); padding: 32px 0; }
+.shots { list-style: none; margin: 0 auto; padding: 0 16px 8px; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  width: min(1080px, 100%); scrollbar-color: var(--sage) transparent; }
+.shots li { flex: 0 0 auto; scroll-snap-align: start; }
+.shots img { width: 216px; border-radius: 14px; box-shadow: 0 6px 18px rgba(28,48,75,.14); }
 
 .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.links a { display: block; padding: 20px 22px; background: var(--tile); border-radius: var(--radius-panel); text-decoration: none; border: 1px solid var(--line); }
-.links a strong { display: block; font: 700 1.2rem/1.3 var(--display); margin-bottom: 4px; }
+.links a { display: block; padding: 20px 22px; background: var(--tile); border-radius: 18px; text-decoration: none; border: 1px solid var(--line); }
+.links a strong { display: block; font-size: 1.2rem; line-height: 1.3; margin-bottom: 4px; }
 .links a span { color: var(--ink-soft); font-size: 1rem; }
 .links a:hover { border-color: var(--sage); }
 
 /* Long-form policy pages */
 .doc { padding: 24px 0 80px; }
 .doc .wrap { max-width: 720px; }
-.doc h1 { font: 800 clamp(2rem, 5vw, 3rem)/1.08 var(--display); letter-spacing: -0.02em; margin: 8px 0 10px; }
+.doc h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.08; margin: 8px 0 10px; }
 .doc .meta { color: var(--ink-soft); margin: 0 0 28px; font-size: 1rem; }
-.doc h2 { font: 700 1.45rem/1.25 var(--display); margin: 44px 0 10px; }
-.doc h3 { font: 700 1.15rem/1.3 var(--display); margin: 26px 0 6px; }
+.doc h2 { font-size: 1.45rem; line-height: 1.25; margin: 44px 0 10px; }
+.doc h3 { font-size: 1.15rem; line-height: 1.3; margin: 26px 0 6px; }
 .doc p, .doc li { max-width: 66ch; }
 .doc ul { padding-left: 1.2em; }
 .doc li { margin: 6px 0; }
-.summary { background: var(--tile); border: 1px solid var(--line); border-radius: var(--radius-panel); padding: 20px 24px; margin: 0 0 32px; }
+.summary { background: var(--tile); border: 1px solid var(--line); border-left: 5px solid var(--sage); border-radius: 18px; padding: 20px 24px; margin: 0 0 32px; }
 .summary h2 { margin-top: 0; }
 .doc table { border-collapse: collapse; width: 100%; font-size: 1rem; margin: 12px 0 20px; display: block; overflow-x: auto; }
 .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
-.doc th { font-family: var(--display); }
 .steps { counter-reset: s; list-style: none; padding: 0; }
 .steps li { counter-increment: s; position: relative; padding-left: 52px; margin: 14px 0; min-height: 36px; }
-.steps li::before { content: counter(s); position: absolute; left: 0; top: -2px; width: 36px; height: 36px; border-radius: var(--radius-tile);
-  background: var(--sage); color: #fff; display: grid; place-items: center; font: 800 1.05rem/1 var(--display); }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: -2px; width: 36px; height: 36px; border-radius: 9px;
+  background: #FBF3E4; color: #1F4A2E; box-shadow: inset 0 -3px 0 #E2D3B8, 0 0 0 2px var(--sage); display: grid; place-items: center; font-weight: 800; }
 
 .site-foot { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--ink-soft); font-size: 1rem; }
 .site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
 .site-foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 
 @media (max-width: 760px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .grid-board { justify-self: start; max-width: 360px; }
-  .game { grid-template-columns: 1fr; }
-  .game img { width: 112px; height: 112px; border-radius: 26px; }
+  .hero.scenic { padding-top: 110px;
+    background: linear-gradient(180deg, rgba(246,241,231,.96) 0%, rgba(246,241,231,.82) 48%, rgba(246,241,231,.2) 100%),
+                url("scenic-900.jpg") 72% 50% / cover no-repeat, #F6F1E7; }
+  .hero.scenic .wrap { grid-template-columns: 1fr; }
+  .board { justify-self: start; max-width: 320px; }
+  .game, .intro .wrap { grid-template-columns: 1fr; }
+  .game img, .intro-icon { width: 88px; height: 88px; border-radius: 20px; }
   .links { grid-template-columns: 1fr; }
+  .shots img { width: 180px; }
 }
