@@ -22,13 +22,14 @@ def page(path, title, desc, body, nav=""):
 <meta name="description" content="{desc}">
 <link rel="icon" type="image/png" href="{up}assets/favicon-64.png">
 {FONTS}
-<link rel="stylesheet" href="{up}assets/site.css?v=3">
+<link rel="stylesheet" href="{up}assets/site.css?v=4">
 </head>
 <body class="{'home' if not path else ''}">
 <header class="site-head"><div class="wrap">
   <a class="brand" href="{up or './'}"><span class="brand-mark" aria-hidden="true">P</span>Phoneporium.AU</a>
   <nav class="site-nav" aria-label="Main">
     <a href="{up}gridrova/"{cur('gridrova')}>GridRova</a>
+    <a href="{up}gridrova-leaderboard/">Rankings</a>
     <a href="{up}gridrova/support/"{cur('support')}>Support</a>
     <a href="{up}gridrova/privacy/"{cur('privacy')}>Privacy</a>
   </nav>
@@ -39,6 +40,7 @@ def page(path, title, desc, body, nav=""):
 <footer class="site-foot"><div class="wrap">
   <p>Phoneporium.AU, an independent game developer in Australia. Contact <a href="mailto:{EMAIL}">{EMAIL}</a></p>
   <nav aria-label="Footer">
+    <a href="{up}gridrova-leaderboard/">Daily rankings</a>
     <a href="{up}gridrova/privacy/">Privacy policy</a>
     <a href="{up}gridrova/delete-data/">Delete your data</a>
     <a href="{up}gridrova/support/">Support</a>
@@ -86,7 +88,7 @@ page("", "Phoneporium.AU", "Phoneporium.AU makes calm, family-friendly mobile wo
     <div>
       <p>Trace hidden words across 300 levels and 30 scenic stops, from easy first grids to longer words in every direction. Play untimed, try a daily puzzle or take on a time challenge.</p>
       <p class="status">Coming soon to Google Play</p>
-      <p><a href="gridrova/">More about GridRova</a></p>
+      <p><a href="gridrova/">More about GridRova</a> · <a href="gridrova-leaderboard/">Daily rankings</a></p>
     </div>
   </div>
 </div></section>
@@ -125,6 +127,7 @@ page("gridrova", "GridRova by Phoneporium.AU", "GridRova is a scenic word-search
 </div></section>
 <section class="section"><div class="wrap">
   <div class="links">
+    <a href="../gridrova-leaderboard/"><strong>Daily rankings</strong><span>Today's podium and past results.</span></a>
     <a href="support/"><strong>Support</strong><span>Get help with GridRova.</span></a>
     <a href="privacy/"><strong>Privacy policy</strong><span>What GridRova stores, and why.</span></a>
     <a href="delete-data/"><strong>Delete your data</strong><span>Remove your online rankings data.</span></a>
