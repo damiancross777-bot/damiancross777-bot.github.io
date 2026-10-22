@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 EMAIL = "phoneporium.au@gmail.com"
-UPDATED = "21 October 2026"
+UPDATED = "22 October 2026"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;800&display=swap" rel="stylesheet">')
 
@@ -72,11 +72,11 @@ for r, row in enumerate(BOARD):
 board = (f'<svg class="board" viewBox="0 0 {5*C+2*PAD} {5*C+2*PAD}" role="img" '
          f'aria-label="A word-search board with the word QUIET traced diagonally">' + "".join(parts) + "</svg>")
 
-page("", "Phoneporium.AU", "Phoneporium.AU makes calm, family-friendly mobile word games in Australia. Home of GridRova.", f"""
+page("", "Phoneporium.AU", "Phoneporium.AU makes calm mobile word games in Australia. Home of GridRova.", f"""
 <section class="hero scenic"><div class="wrap">
   <div class="hero-copy">
     <h1>Small games for quiet minutes.</h1>
-    <p>Phoneporium.AU is an independent studio in Australia making calm, family-friendly puzzle games for Android.</p>
+    <p>Phoneporium.AU is an independent studio in Australia making calm puzzle games for Android.</p>
     <p>Our first game, GridRova, is a scenic word search with 300 levels.</p>
   </div>
   {board}
@@ -123,7 +123,7 @@ page("gridrova", "GridRova by Phoneporium.AU", "GridRova is a scenic word-search
     <li>Time challenges from level 20</li><li>Plays offline</li><li>No purchases</li>
   </ul>
   <p style="max-width:62ch">Start with simple puzzles, then explore larger grids, longer words and more directions. Themes from animals and food to space and ocean life keep each chapter fresh. Stuck? Use a recharging nudge, or spend in-game coins on hints. Coins are earned by playing and can't be bought.</p>
-  <p style="max-width:62ch">GridRova is free and shows ads. Players under 13, and anyone who prefers not to give their age, only see child-safe ads. Optional online rankings use a random name, never an email address.</p>
+  <p style="max-width:62ch">GridRova is free, shows ads and is intended for players aged 13 and older. Optional online rankings use an anonymous account with a random player name, never an email address.</p>
 </div></section>
 <section class="section"><div class="wrap">
   <div class="links">
@@ -143,92 +143,93 @@ page("gridrova/privacy", "GridRova privacy policy", "How GridRova by Phoneporium
 <div class="summary">
 <h2>The short version</h2>
 <ul>
-<li>GridRova has no sign-up. We never ask for your name, email, phone number, contacts, photos or location.</li>
-<li>Your game progress stays on your phone.</li>
-<li>When the game first opens it asks what year you were born. Only an age group is kept, on your phone, to choose which kind of ads you can see.</li>
-<li>Players under 13, and anyone who chooses "Prefer not to say", only get child-safe, non-personalised ads.</li>
-<li>Online rankings use a random player name and an anonymous ID. You can delete that data from the game at any time.</li>
-<li>We don't sell your information, and GridRova has no in-app purchases and no analytics.</li>
+<li>You don't enter a username, password or email to play, and we never ask for your name, phone number, contacts, photos or location.</li>
+<li>Your game progress, coins and medals are saved on your phone.</li>
+<li>When the game first opens it asks what year you were born. Only an age group is kept, on your phone, to choose suitable ad settings.</li>
+<li>Players under 13, and anyone who chooses "Prefer not to say", get Google's most protective ad settings: non-personalised ads rated G.</li>
+<li>If you choose to play online rankings, an anonymous player account is created for you. You can delete it, and its online data, from the game at any time.</li>
+<li>We don't sell your information. GridRova has no in-app purchases and no separate analytics tool of our own.</li>
 </ul>
 </div>
 
 <h2>Who we are</h2>
 <p>GridRova is made by Phoneporium.AU, an independent game developer in Australia. We are responsible for the information described in this policy. You can contact us at <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 
+<h2>Who GridRova is for</h2>
+<p>GridRova is intended for players aged 13 and older. It isn't designed for or directed at children. The game still asks every player's birth year, and younger or unknown-age players get the more protective ad settings described below. A parent or guardian can contact us about a child's online data at any time.</p>
+
 <h2>Information kept on your phone</h2>
-<p>GridRova saves the following on your device so you can carry on where you left off: level progress, puzzle in progress, coins, postcards, settings (sound, music, grid lines) and your age group. This information isn't sent to us. It is removed if you uninstall the game or clear its storage.</p>
+<p>GridRova saves the following on your device so you can carry on where you left off: level progress, any puzzle in progress, coins, medals, postcards, settings (sound, music, grid lines) and your age group. This information isn't sent to us. It is removed if you uninstall the game or clear its storage. A backup file you choose to export is yours to keep or delete.</p>
 
 <h2>The age question</h2>
-<p>The first time you open GridRova, it asks "What year were you born?" with nothing preselected, and a "Prefer not to say" option. The game works out an age group (under 13, 13 to 17, or 18 and over) and stores only that group and when it was chosen. The birth year itself is not stored or sent anywhere.</p>
-<p>The age group is used only to set up ads (see below). You can switch to child-safe ads at any time in Settings. To protect younger players, the game won't switch from child-safe ads back to normal ads.</p>
+<p>The first time you open GridRova, it asks "What year were you born?" with nothing preselected, and a "Prefer not to say" option. The birth year is used only on your phone, at that moment, to work out an age group (under 13, 13 to 17, or 18 and over). Only the age group and when it was chosen are saved, on your phone. The birth year itself is not stored or sent anywhere.</p>
+<p>The age group is used only to set up ads (see below). You can switch to child-safe ads at any time in Settings. The game won't switch from child-safe ads back to normal ads.</p>
 
 <h2>Advertising</h2>
-<p>GridRova is free and shows ads from Google AdMob. Ads are not shown until the age question has been answered.</p>
+<p>GridRova is free and shows ads from Google AdMob. Ads are not requested until the age question has been answered.</p>
 <table>
-<thead><tr><th scope="col">Age group</th><th scope="col">What happens</th></tr></thead>
+<thead><tr><th scope="col">Age group</th><th scope="col">What the game asks Google for</th></tr></thead>
 <tbody>
-<tr><td>Under 13, or "Prefer not to say"</td><td>Ad requests are marked as child-directed and under the age of consent. Only non-personalised ads rated G are requested. Formats that can't meet child-safe rules are switched off.</td></tr>
-<tr><td>13 to 17</td><td>Ad requests are marked as under the age of consent. Only non-personalised ads rated PG are requested.</td></tr>
+<tr><td>Under 13, or "Prefer not to say"</td><td>Ad requests are marked as child-directed and under the age of consent, and ask for non-personalised ads rated G.</td></tr>
+<tr><td>13 to 17</td><td>Ad requests are marked as under the age of consent and ask for non-personalised ads rated PG.</td></tr>
 <tr><td>18 and over</td><td>Google's consent message is shown where the law requires it. With your consent, ads may be personalised; otherwise they are non-personalised. Ads are rated PG or lower.</td></tr>
 </tbody>
 </table>
-<p>To show and measure ads, Google may collect information such as your IP address, device and app information and ad interactions, and the device advertising ID. For child-directed and under-age requests, Google limits how this information is used and doesn't use it to personalise ads. Google handles this information under its own policy: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from apps that use its services</a>. You can reset or delete your advertising ID in your phone's settings.</p>
+<p>To show and measure ads and prevent fraud, Google AdMob processes information such as your IP address (which can indicate approximate location), device and app information, ad interactions, app performance diagnostics and device identifiers such as the advertising ID. For child-directed and under-age requests, Google limits how this information is used. Google handles this information under its own policy: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from apps that use its services</a>. You can reset or delete your advertising ID in your phone's settings.</p>
 
 <h2>Online rankings</h2>
-<p>GridRova has optional daily rankings and a Champions list for players who finish all 300 levels. When you first take part, the game creates an anonymous player ID using Google Firebase Authentication. No email address or account is involved. The ID is stored securely on your phone.</p>
-<p>Our server then keeps:</p>
+<p>Online rankings are optional. If you choose to play them, Google Firebase Authentication creates an anonymous player account for you. There is no username, password or email, and the account's sign-in key is stored securely on your phone. We use the account's identifier to link your ranked results and any in-game prize records to you.</p>
+<p>For each ranked puzzle you play, our server keeps:</p>
 <ul>
-<li>your anonymous player ID and a randomly generated player name (for example, a word pairing), which you didn't choose and which doesn't identify you</li>
-<li>start and finish times of ranked puzzles, your result and rank</li>
-<li>which levels have been recorded online, for the Champions list</li>
-<li>any in-game coin prizes awarded for a daily podium place (coins have no cash value)</li>
+<li>your anonymous player ID and a randomly generated player name, which you didn't choose and which doesn't identify you</li>
+<li>when you started and finished, the word paths you submitted, your time, your result and your rank</li>
+<li>receipts for any in-game coin prizes awarded for a daily podium place (coins have no cash value)</li>
 </ul>
-<p>Your random player name, rank and time are shown publicly on the rankings. Our server runs on Google Cloud in Australia (Sydney region). Google keeps basic request logs, which include IP addresses, for security and troubleshooting; these are kept for about 30 days.</p>
-<p>Version 1.0 has no account linking and no cloud save. Your game progress is not uploaded.</p>
+<p>Your random player name, rank and time are shown publicly on the <a href="../../gridrova-leaderboard/">daily rankings</a>. Our server runs on Google Cloud in Australia (Sydney region). Google keeps request logs, which include IP addresses, for security and troubleshooting.</p>
+<p>Version 1.0 has no account linking, email sign-in or cloud save. Because the anonymous account's key lives only on your phone, it can't be moved to or recovered on another phone, and your game progress is never uploaded.</p>
 
 <h2>What we don't do</h2>
 <ul>
 <li>We don't sell or rent personal information.</li>
-<li>We don't use analytics or tracking tools of our own.</li>
+<li>We don't include a separate analytics tool of our own. Google AdMob processes ad interactions and diagnostics to serve and measure ads, as described above.</li>
 <li>The game doesn't request location, contacts, camera, microphone, photos or file storage permissions.</li>
 <li>There are no in-app purchases or chat features.</li>
 </ul>
 
-<h2>Children</h2>
-<p>GridRova is designed to be suitable for all ages, including children. We don't ask children for personal information. Players under 13, and anyone whose age is unknown, get child-safe ad settings as described above. Online rankings use only a random name and an anonymous ID. A parent or guardian can delete a child's online data at any time from the game or by emailing us.</p>
-
 <h2>How long we keep information</h2>
 <ul>
 <li>On your phone: until you uninstall the game or clear its data.</li>
-<li>Online rankings data: while you keep playing. You can delete it whenever you like.</li>
-<li>Final daily results: kept so past podiums stay correct. If you delete your data, your place stays but your name is replaced with "Deleted player".</li>
-<li>Server request logs: about 30 days.</li>
+<li>Online rankings data: until you delete it.</li>
+<li>Published final daily results: kept so past podiums stay correct. If you delete your data, your place stays but your name is replaced with "Deleted player".</li>
+<li>Deletion marker: a record of your anonymous ID and when it was deleted, kept for 30 days so a prize can't be paid to a deleted account, then removed automatically.</li>
+<li>Server request logs (which include IP addresses): deleted automatically after 30 days.</li>
+<li>Google Cloud's administrative audit records for our server (for example, that an account was deleted): kept by Google for 400 days. This period is set by Google and can't be shortened.</li>
 </ul>
 
 <h2>Deleting your data</h2>
-<p>In GridRova, open Settings and choose "Delete my online data". This removes your anonymous ID and everything our server holds about you, straight away. Your progress on your phone isn't affected. You can also <a href="../delete-data/">ask us by email</a>.</p>
+<p>In GridRova, open Settings and choose "Delete my online data". This removes your anonymous player account and its ranking, attempt and prize records straight away. Published final standings keep your place with the name "Deleted player", and a short-lived deletion marker is kept as described above. Game progress, coins and medals on your phone aren't affected. Deleting online data doesn't erase records Google AdMob handles under its own policy, or backup files you exported. If you no longer have the game, see <a href="../delete-data/">delete your data</a>.</p>
 
 <h2>Your rights</h2>
-<p>You can ask us what information we hold about you, ask us to correct it or delete it, or ask a question about this policy by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. Because we don't collect names or email addresses through the game, we may ask you for the player name shown in the game so we can find your data. We aim to reply within 30 days.</p>
+<p>You can ask us what information we hold about you, or ask us to correct or delete it, by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. We'll reply within 7 days. Because we don't collect names or email addresses through the game, we'll ask for the player name shown in the game so we can find your data.</p>
 <p>We follow the Australian Privacy Principles. If you are not happy with our response, you can contact the <a href="https://www.oaic.gov.au/privacy/privacy-complaints">Office of the Australian Information Commissioner</a>. If you live elsewhere, you may also have rights under your local law, such as the GDPR in Europe and the UK.</p>
 
 <h2>Information sent overseas</h2>
 <p>Ad requests are handled by Google, which may process information in other countries, including the United States. Our rankings server is hosted in Australia.</p>
 
 <h2>Changes to this policy</h2>
-<p>If we change this policy, we'll update this page and the date at the top. If the change is significant, such as adding accounts or cloud save, we'll also say so in the game before it takes effect.</p>
+<p>If we change this policy, we'll update this page and the date at the top. If the change is significant, such as adding email sign-in or cloud save, we'll also say so in the game before it takes effect.</p>
 </div></article>
 """, nav="privacy")
 
 page("gridrova/support", "GridRova support", "Get help with GridRova by Phoneporium.AU.", f"""
 <article class="doc"><div class="wrap">
 <h1>GridRova support</h1>
-<p class="meta">Email <a href="mailto:{EMAIL}?subject=GridRova%20support">{EMAIL}</a>. We usually reply within a few working days.</p>
+<p class="meta">Email <a href="mailto:{EMAIL}?subject=GridRova%20support">{EMAIL}</a>. We reply within 7 days.</p>
 <p>When you write, it helps to include your phone model, the Android version and the level number, plus a screenshot if something looks wrong.</p>
 
 <h2>Common questions</h2>
 <h3>Will I lose my progress if I change phones?</h3>
-<p>Progress is saved on your phone. Version 1.0 doesn't include cloud save, so progress doesn't move to a new phone, and uninstalling the game removes it.</p>
+<p>Progress is saved on your phone. Version 1.0 doesn't include cloud save or account recovery, so progress and your online rankings account don't move to a new phone, and uninstalling the game removes them.</p>
 <h3>Does GridRova work offline?</h3>
 <p>Yes. The journey and daily puzzles work without internet. Ads and online rankings need a connection.</p>
 <h3>Can I buy coins?</h3>
@@ -238,7 +239,7 @@ page("gridrova/support", "GridRova support", "Get help with GridRova by Phonepor
 <h3>How do I switch to child-safe ads?</h3>
 <p>Open Settings and choose "Use child-safe ads".</p>
 <h3>Where does my ranking name come from?</h3>
-<p>It's generated at random so that nobody's real name appears on the rankings.</p>
+<p>It's generated at random when you first play online rankings, so nobody's real name appears on the rankings.</p>
 <h3>How do I delete my online data?</h3>
 <p>Open Settings and choose "Delete my online data". More options are on the <a href="../delete-data/">delete your data</a> page.</p>
 </div></article>
@@ -248,25 +249,27 @@ page("gridrova/delete-data", "Delete your GridRova data", "How to delete the onl
 <article class="doc"><div class="wrap">
 <h1>Delete your GridRova data</h1>
 <p class="meta">GridRova by Phoneporium.AU. Last updated {UPDATED}.</p>
-<p>GridRova doesn't use accounts or email addresses. If you've taken part in online rankings, our server holds an anonymous player ID, a random player name and your ranking results. You can delete all of it.</p>
+<p>You don't enter a username, password or email to play GridRova. If you played online rankings, the game created an anonymous player account for you, and our server holds its ID, a random player name, your ranked results and any prize records. You can delete the account and that data.</p>
 
 <h2>Delete it in the game</h2>
 <ol class="steps">
 <li>Open GridRova and go to Settings.</li>
 <li>Choose "Delete my online data" and confirm.</li>
-<li>Your anonymous ID, player name, ranking results, Champions record and any coin prize records are removed from our server straight away.</li>
+<li>Your anonymous account, player name, ranked attempts and results, and coin prize records are removed from our server straight away, and the account can no longer sign in.</li>
 </ol>
 
 <h2>Ask us by email</h2>
-<p>If you no longer have the game installed, email <a href="mailto:{EMAIL}?subject=GridRova%20data%20deletion">{EMAIL}</a> with the subject "GridRova data deletion" and, if you can, your player name as shown in the game. We'll confirm when it's done, within 30 days.</p>
+<p>If you no longer have the game, email <a href="mailto:{EMAIL}?subject=GridRova%20data%20deletion">{EMAIL}</a> with the subject "GridRova data deletion" and your player name exactly as it appeared in the game. We'll reply within 7 days.</p>
+<p>There's no password or email linked to an anonymous account, so we can't check who owns it. To protect current players, we delete by email only when exactly one account has that player name and it hasn't been used for at least 30 days. If it's been used more recently, please delete it from Settings on the phone that has the game. We never ask for passwords or payment details.</p>
 
 <h2>What is deleted, and what is kept</h2>
 <ul>
-<li>Deleted: your anonymous player ID, player name, ranked attempts and results, Champions record and coin prize records.</li>
-<li>Kept: past daily final results keep your place so other players' ranks stay correct, but your name is replaced with "Deleted player". We also keep a record of the anonymous ID and when it was deleted, so a prize can't be paid to a deleted player.</li>
-<li>Server request logs held by Google Cloud are removed automatically after about 30 days.</li>
+<li>Deleted: your anonymous account and its sign-in, player name, ranked attempts and results, and coin prize records.</li>
+<li>Kept: published final daily results keep your place so other players' ranks stay correct, with your name replaced by "Deleted player". A record of the deleted account ID and deletion time is kept for 30 days so a prize can't be paid to a deleted account, then removed automatically.</li>
+<li>Server request logs held by Google Cloud are deleted automatically after 30 days. Google Cloud's administrative audit records, such as the fact that an account was deleted, are kept by Google for 400 days.</li>
+<li>Records Google AdMob handles under its own policy aren't covered by this deletion. You can reset or delete your advertising ID in your phone's settings.</li>
 </ul>
-<p>Progress saved on your phone isn't affected. To remove it, uninstall GridRova or clear its storage in Android Settings.</p>
+<p>Progress, coins and medals saved on your phone aren't affected. To remove them, uninstall GridRova or clear its storage in Android Settings.</p>
 </div></article>
 """)
 
